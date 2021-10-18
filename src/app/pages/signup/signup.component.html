@@ -1,0 +1,57 @@
+<section class="signup flex-center">
+    <div class="wrapper">
+        <form class="signup-form" [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div class="signup-title">
+                Sign up
+            </div>
+            <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" name="firstName" id="firstName" formControlName="firstName">
+                <div class="error-msg" *ngIf="firstName.invalid && firstName.touched">
+                    <small *ngIf="firstName.errors.required">First name is required.</small>
+                    <small *ngIf="firstName.errors.pattern">First name is allowed only English letters.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" name="lastName" id="lastName" formControlName="lastName">
+                <div class="error-msg" *ngIf="lastName.invalid && lastName.touched">
+                    <small *ngIf="lastName.errors.required">Last name is required.</small>
+                    <small *ngIf="lastName.errors.pattern">Last name is allowed only English letters.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" formControlName="email">
+                <div class="error-msg" *ngIf="email.invalid && email.touched">
+                    <small *ngIf="email.errors.required">Email is required.</small>
+                    <small *ngIf="email.errors.pattern">Email is invalid.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" formControlName="password">
+                <div class="error-msg" *ngIf="password.invalid && password.touched">
+                    <small *ngIf="password.errors.required">Password is required.</small>
+                    <small *ngIf="password.errors.minlength">Passwords must be at least 8-16 characters.</small>
+                    <small *ngIf="password.errors.maxlength">Passwords must be at least 8-16 characters.</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" name="confirmPassword" id="confirmPassword" formControlName="confirmPassword"
+                [ngClass]="confirmPassword.valid && confirmPassword.value != password.value ? 'confirm-password-invalid' : '' "
+                >
+                <div class="error-msg" *ngIf="confirmPassword.invalid && confirmPassword.touched">
+                    <small *ngIf="confirmPassword.errors.required">Confirm password is required.</small>
+                </div>
+                <div class="error-msg" *ngIf="confirmPassword.valid && confirmPassword.value != password.value">
+                    <small>The password entered do not match</small>
+                </div>
+            </div>
+            <div class="wrap-login-btn">
+                <button type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+</section>

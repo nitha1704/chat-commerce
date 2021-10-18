@@ -1,0 +1,27 @@
+.chat {
+  height: 100vh;
+  padding-top: 100px;
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+  }
+
+  .chat-section1 {
+    padding: 0 12px;
+    .social-icon {
+      margin-bottom: 30px;
+      cursor: pointer;
+      img {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  .chat-section2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+  }
+}

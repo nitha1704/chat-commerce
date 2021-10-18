@@ -1,0 +1,41 @@
+<header>
+    <div class="inner">
+        <div class="header-section1">
+            <div class="hamburger-menu flex-center">
+                <div class="wrap-line">
+                    <div class="line line1"></div>
+                    <div class="line line2"></div>
+                    <div class="line line3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="header-section2">
+            <span>Chat commerce</span>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="wrapper">
+        <ul class="navbar-menu cleargap">
+            <li>
+                <a routerLink="" class="navLink" (click)="removeNavbar()">Home</a>
+            </li>
+            <li>
+                <a routerLink="chat" class="navLink" (click)="removeNavbar()">Chat</a>
+            </li>
+            <li>
+                <a routerLink="about" class="navLink" (click)="removeNavbar()">About Us</a>
+            </li>
+            <li *ngIf="!isLogin" class="isLoginFunction">
+                <a routerLink="login" class="navLink" (click)="removeNavbar()">Log in/Sign Up</a>
+            </li>
+            <li *ngIf="isLogin">
+                <a routerLink="profile" class="navLink" (click)="removeNavbar()">My Profile</a>
+            </li>
+            <li *ngIf="isLogin">
+                <a href="javascript:;" (click)="signOut()" class="navLink">Sign out</a>
+            </li>       
+        </ul>
+    </div>
+</nav>
